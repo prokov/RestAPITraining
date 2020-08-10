@@ -380,6 +380,7 @@ public class APITest {
 
     }
 
+    //Note: will be deprecated soon. Use OAuth token instead from https://github.com/settings/tokens
     private String makeHeader() {
         auth = email + ":" + pass;
         byte[] encodedAuth = Base64.encodeBase64(auth
