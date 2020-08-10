@@ -20,6 +20,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
@@ -48,9 +49,9 @@ public class APITest {
 
     String jsonMimeType = "application/json";
     String email = "victoria.prokopchuk@gmail.com";
-    String user = "login";
-    String pass = "password";
-    String token = "6076d36ef63014999a1360f34f5075f921c8ba84";
+    String user = "";
+    String pass = "";
+    String token = "";
     private String auth;
 
     @BeforeClass
@@ -259,15 +260,12 @@ public class APITest {
 
     @Test(priority = 1)
     //test delete
-    //TODO Get repo list and delete by some criteria
-
-    //DELETE /repos/:owner/:repo/contents/:path
     public void testDelete() throws ClientProtocolException, IOException {
 
 
         // Given
 
-        deleteRequest = new HttpDelete(baseURL + "repos/" + user + "/Repo920630");
+        deleteRequest = new HttpDelete(baseURL + "repos/" + user + "/TestRepoName");
         // Only after 403 - add authorization
         deleteRequest.setHeader(HttpHeaders.AUTHORIZATION, "token " + token);
 
@@ -281,6 +279,7 @@ public class APITest {
 
 
     @Test(priority = 1)
+    @Ignore
 
     //TODO Get repo list and delete by some criteria
 
